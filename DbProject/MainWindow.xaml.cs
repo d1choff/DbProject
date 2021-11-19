@@ -59,6 +59,8 @@ namespace DbProject
 
         private void btnDelate_Click(object sender, RoutedEventArgs e)
         {
+            db.DelBook(idBook);
+            dgdbBook.ItemsSource = db.ReadBook();
 
         }
     }

@@ -97,5 +97,24 @@ namespace DbProject
             }
             connection.Close();
         }
+
+        public void DelBook(int id)
+        {
+            string cmdtxt = $"DELETE FROM books WHERE idbooks = {id}";
+            try
+            {
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand(cmdtxt, connection);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            connection.Close();
+
+
+        }
     }
 }
