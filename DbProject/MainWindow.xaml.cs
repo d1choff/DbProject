@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,7 @@ namespace DbProject
 
         private void dgdbBook_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            tbAuthor.Text = dgdbBook.SelectedIndex.ToString();
             Book book = new Book();
             book = dgdbBook.SelectedItem as Book;
             if (book != null)
@@ -59,6 +61,8 @@ namespace DbProject
 
         private void btnDelate_Click(object sender, RoutedEventArgs e)
         {
+            db.DelBook(idBook);
+            dgdbBook.ItemsSource = db.ReadBook();
 
         }
     }
