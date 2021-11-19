@@ -14,5 +14,6 @@ namespace DbProject
         public string Author { get; set; }
         public int DateCreate { get; set; }
         public string Description { get; set; }
+        public string Image { get; set; }
     }
 }

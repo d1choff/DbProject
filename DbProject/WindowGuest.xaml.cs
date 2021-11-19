@@ -23,6 +23,7 @@ namespace DbProject
         public WindowGuest()
         {
             InitializeComponent();
+            DataContext = db;
             db.CreateStrConnection();
             listBooks.ItemsSource = db.ReadBook();
         }
@@ -38,6 +39,7 @@ namespace DbProject
                 lblAuthor.Content = $"Автор: {book.Author}";
                 lblDate.Content = $"Дата издания: { book.DateCreate}";
                 rhDesc.AppendText(book.Description);
+                bng.Source = book.Image;
             }
         }
     }

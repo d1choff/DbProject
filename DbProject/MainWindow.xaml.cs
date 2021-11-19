@@ -51,6 +51,7 @@ namespace DbProject
                 tbDateCreate.Text = book.DateCreate.ToString();
                 idBook = book.idbooks;
                 tbDesc.Text = book.Description;
+                
             }
         }
 
