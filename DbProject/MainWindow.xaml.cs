@@ -23,6 +23,7 @@ namespace DbProject
     public partial class MainWindow : Window
     {
         DataClass db = new DataClass();
+        Book book = new Book();
         int idBook;
 
         public MainWindow()
@@ -34,13 +35,12 @@ namespace DbProject
 
         private void btnAddBook_Click(object sender, RoutedEventArgs e)
         {
-            db.AddBook(tbTitle.Text, tbAuthor.Text, tbGenre.Text, Convert.ToInt32(tbDateCreate.Text));
+            db.AddBook(tbTitle.Text, tbAuthor.Text, tbGenre.Text, Convert.ToInt32(tbDateCreate.Text),tbDesc.Text);
             dgdbBook.ItemsSource = db.ReadBook();
         }
 
         private void dgdbBook_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            tbAuthor.Text = dgdbBook.SelectedIndex.ToString();
             Book book = new Book();
             book = dgdbBook.SelectedItem as Book;
             if (book != null)
@@ -50,12 +50,13 @@ namespace DbProject
                 tbGenre.Text = book.Genre;
                 tbDateCreate.Text = book.DateCreate.ToString();
                 idBook = book.idbooks;
+                tbDesc.Text = book.Description;
             }
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            db.UpdBook(idBook, tbTitle.Text, tbAuthor.Text, tbGenre.Text, Convert.ToInt32(tbDateCreate.Text));
+            db.UpdBook(idBook, tbTitle.Text, tbGenre.Text, tbAuthor.Text, Convert.ToInt32(tbDateCreate.Text),tbDesc.Text);
             dgdbBook.ItemsSource = db.ReadBook();
         }
 

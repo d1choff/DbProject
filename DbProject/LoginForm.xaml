@@ -10,11 +10,11 @@
         <TextBlock Text="Добро пожаловать!" FontSize="30" HorizontalAlignment="Center"/>
         <TextBlock Text="Авторизуйтесь или выбирите гостевой режим" FontSize="17" HorizontalAlignment="Center" Margin="0,10,0,0"/>
         <TextBlock Text="Логин:" FontSize="20" Margin="100,0,0,0"/>
-        <TextBox x:Name="tbLoginUser" Width="200" Height="30" />
+        <TextBox x:Name="tbLoginUser" Width="200" Height="30" FontSize="16" TouchEnter="tbLoginUser_TouchEnter" KeyUp="tbLoginUser_KeyUp" />
         <TextBlock Text="Пароль:" FontSize="20" Margin="100,0,0,0"/>
-        <PasswordBox x:Name="tbPassUser" Width="200" Height="30"/>
-        <Button Name="btnLoginUser" Content="Войти" Height="40" Width="160" Margin="0,10,0,0" FontSize="20"/>
-        <Button Name="btnLoginGuest" Content="Гостевой режим" Height="40" Width="260" FontSize="20" Background="Green" Foreground="White" Margin="0,10,0,0"/>
+        <PasswordBox x:Name="tbPassUser" Width="200" Height="30" FontSize="16" KeyUp="tbPassUser_KeyUp"/>
+        <Button Name="btnLoginUser" Content="Войти" Height="40" Width="160" Margin="0,10,0,0" FontSize="20" Click="btnLoginUser_Click"/>
+        <Button Name="btnLoginGuest" Content="Гостевой режим" Height="40" Width="260" FontSize="20" Background="Green" Foreground="White" Margin="0,10,0,0" Click="btnLoginGuest_Click"/>
 
     </StackPanel>
 </Window>
